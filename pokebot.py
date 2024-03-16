@@ -23,7 +23,7 @@ async def start_command_handler(client, message):
     ])
 
     # Send the message with the inline keyboard
-    await message.reply_text(text, reply_markup='Select')
+    await message.reply_text(text, reply_markup=inline_keyboard)
 
 # Define the handler for the inline button
 @app.on_callback_query()
