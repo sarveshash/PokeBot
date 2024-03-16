@@ -1,5 +1,5 @@
-import asyncio
-from pyrogram import Client,emoji, filters
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 api_id = 20058505
 api_hash = "c6416428be72db3174999c1740524b88"
