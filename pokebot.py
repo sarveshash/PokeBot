@@ -29,6 +29,6 @@ async def start_command_handler(client, message):
 @app.on_callback_query()
 async def inline_button_handler(client, callback_query):
     if callback_query.data == "button_clicked":
-        await callback_query.answer("Button Clicked!")
+        await callback_query.answer("hi")
 
 app.run()
