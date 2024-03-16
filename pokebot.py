@@ -1,14 +1,13 @@
-from pyrogram import Client, filters
+import asyncio
+from pyrogram import Client
 
-api_id = 20058505
-api_hash = "c6416428be72db3174999c1740524b88"
-bot_token = "6563744619:AAG4v_ABfLA3lCSGbcNLWlS07ZA_qUmseqM"
-
-app = Client("Join Bot",api_id=api_id, api_hash=api_hash, bot_token=bot_token)
-
-@app.on_message(filters.command('start')&filters.private)
-async def start(client, message):
-    await message.reply("Hello User! \nI am Join Bot made by my master! \nI have been rebooted by my Master!!!")
+api_id = 12345
+api_hash = "0123456789abcdef0123456789abcdef"
 
 
-app.run()
+async def main():
+    async with Client("my_account", api_id, api_hash) as app:
+        await app.send_message("me", "Greetings from **Pyrogram**!")
+
+
+asyncio.run(main())
