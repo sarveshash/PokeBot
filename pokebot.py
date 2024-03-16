@@ -1,8 +1,8 @@
 import asyncio
 from pyrogram import Client
 
-api_id = 12345
-api_hash = "0123456789abcdef0123456789abcdef"
+api_id = 20058505
+api_hash = "c6416428be72db3174999c1740524b88"
 
 
 async def main():
