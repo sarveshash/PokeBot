@@ -19,3 +19,4 @@ async def welcome(client, message):
     # Send the welcome message, without the web page preview
     await message.reply_text(text, disable_web_page_preview=True)
 
+app.run()
