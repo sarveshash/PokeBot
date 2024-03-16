@@ -6,7 +6,7 @@ bot_token = "6563744619:AAG4v_ABfLA3lCSGbcNLWlS07ZA_qUmseqM"
 
 app = Client("Join Bot",api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
-@app.on_mesaage(filters.command('start')&filters.private)
+@app.on_message(filters.command('start')&filters.private)
 async def start(client, message):
     await message.reply("Hello User! \nI am Join Bot made by my master! \nI have been rebooted by my Master!!!")
 
