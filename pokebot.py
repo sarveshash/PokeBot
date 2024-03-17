@@ -31,4 +31,41 @@ async def inline_button_handler(client, callback_query):
     if callback_query.data == "button_clicked":
         await callback_query.edit_message_text("hi")
 
+
+# Define a list of admin user IDs (replace these with actual user IDs)
+admin_ids = [123456789, 987654321]
+
+# Define a custom filter to check if the user is an admin
+def is_admin(_, __, update):
+    return update.from_user.id in admin_ids
+
+# Define a command handler to promote a user to admin
+@app.on_message(filters.command("promote") & is_admin)
+async def promote_command_handler(client, message):
+    # Check if a username was mentioned in the command
+    if len(message.command) != 2:
+        await message.reply_text("Please mention the username of the user you want to promote.")
+        return
+
+    # Get the username mentioned in the command
+    username = message.command[1]
+
+    # Get the user ID from the username
+    try:
+        user = await app.get_users(username)
+        user_id = user.id
+    except Exception as e:
+        await message.reply_text(f"Error: {e}")
+        return
+
+    # Add the user ID to the list of admin IDs
+    admin_ids.append(user_id)
+
+    # Respond to the user indicating successful promotion
+    await message.reply_text(f"User {username} has been promoted to admin.")
+
+# Run the Pyrogram client
+
+
+
 app.run()
